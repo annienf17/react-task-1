@@ -1,13 +1,21 @@
-export const Product = () => {
+import PropTypes from "prop-types";
+
+export const Product = ({ name, imgUrl, price }) => {
   return (
     <div>
-      <h2>Tacos</h2>
+      <h2>{name}</h2>
       <img
-        src="<https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640>"
-        alt="Tacos With Lime"
-        width="640"
+        src={imgUrl}
+        alt={name}
+        style={{ width: "480px", height: "320px" }}
       />
-      <p>Price: 999 credits</p>
+      <p>Price: {price} credits</p>
     </div>
   );
+};
+
+Product.propTypes = {
+  name: PropTypes.string.isRequired,
+  imgUrl: PropTypes.string,
+  price: PropTypes.number.isRequired,
 };
